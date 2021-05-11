@@ -4,7 +4,6 @@ const Users = require("../controllers/UsersController");
 const Followings = require("../controllers/FollowingsController");
 const { isAuth } = require("../services/authMiddleware");
 const { isAdmin } = require("../services/authMiddleware");
-const imageDeleter = require("../services/imageDeleter");
 
 router.get("/pending-posts", isAuth, isAdmin, async (req, res) => {
     try {

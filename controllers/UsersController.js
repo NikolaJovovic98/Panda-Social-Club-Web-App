@@ -5,7 +5,6 @@ const mailer = require("../services/mailer");
 const jwt = require("jsonwebtoken");
 const db = require("../config/db");
 const imageUploader = require("../services/imageUpload");
-const imageDeleter = require("../services/imageDeleter");
 const imageData = require("../services/getImageDimensions");
 const { sanitize_credentials } = require("../services/xss_sanitize");
 const { upload_to_google_drive } = require("../services/google_drive_api");
@@ -229,7 +228,6 @@ function updateUserCoverPhoto(image_cover, userId) {
                 );
                 resolve(true);
             } else {
-                await imageDeleter(cover);
                 reject({
                     error: true,
                     message: 'Cover must be landscape (Width>Height)',
@@ -381,9 +379,6 @@ function removeAdmin(userId) {
 function removeUser(userId) {
     return new Promise(async (resolve, reject) => {
         try {
-            const user = await Users.findOne({ where: { id: userId } });
-            await imageDeleter(user.avatar);
-            await imageDeleter(user.cover_photo)
             const removeUser = await Users.destroy({
                 where: {
                     id: userId
