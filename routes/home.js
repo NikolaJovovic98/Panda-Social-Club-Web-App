@@ -6,43 +6,39 @@ const Followings = require("../controllers/FollowingsController");
 const Users = require("../controllers/UsersController");
 const createRoomId = require("../services/createRoomId");
 
-router.get("/",(req,res)=>{
-    res.render("404.hbs")
+router.get("/", isAuth,async (req, res) => {
+    try {
+        let {page}= req.query;
+        page = parseInt(page);
+        size = 3;
+        if(!page){
+            page = 1;
+        }
+        let from = (page-1)*size;
+        let to = page*size;
+        const homePagePosts = await Posts.getHomePagePosts(req.user.id);
+        homePagePosts[0].forEach(post =>{
+            if(post.num_of_comments === null){
+                post.num_of_comments = 0;
+            }
+            if(post.num_of_likes === null){
+                post.num_of_likes = 0;
+            }
+        });
+        const followers = await Followings.getUsersFollowers(req.user.id);
+        const pagePosts = homePagePosts[0].slice(from,to);
+        const numOfPosts = homePagePosts[0].length;
+        res.render("home.hbs", {
+            loggedUser: req.user,
+            posts: pagePosts,
+            followers,
+            numOfPosts,
+            page
+        }); 
+    } catch (error) {
+        res.status(403).json(error);
+    }
 });
-
-// router.get("/", isAuth,async (req, res) => {
-//     try {
-//         let {page}= req.query;
-//         page = parseInt(page);
-//         size = 3;
-//         if(!page){
-//             page = 1;
-//         }
-//         let from = (page-1)*size;
-//         let to = page*size;
-//         const homePagePosts = await Posts.getHomePagePosts(req.user.id);
-//         homePagePosts[0].forEach(post =>{
-//             if(post.num_of_comments === null){
-//                 post.num_of_comments = 0;
-//             }
-//             if(post.num_of_likes === null){
-//                 post.num_of_likes = 0;
-//             }
-//         });
-//         const followers = await Followings.getUsersFollowers(req.user.id);
-//         const pagePosts = homePagePosts[0].slice(from,to);
-//         const numOfPosts = homePagePosts[0].length;
-//         res.render("home.hbs", {
-//             loggedUser: req.user,
-//             posts: pagePosts,
-//             followers,
-//             numOfPosts,
-//             page
-//         }); 
-//     } catch (error) {
-//         res.status(403).json(error);
-//     }
-// });
 
 router.get("/register", isDoubleAuth, async (req, res) => {
     try {

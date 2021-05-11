@@ -109,7 +109,7 @@ app.use((req,res)=>{
 //         console.log("There was an error in connecting do database-> " + err);
 //     });
 
-app.listen(PORT, (err) => {
+server.listen(PORT, (err) => {
                 if (err) { console.log(err); }
                 console.log("Server is running on port:" + PORT);
             });
