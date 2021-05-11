@@ -1,0 +1,24 @@
+<div id="friends-big-div">
+
+    <h1 id="test-title">Users Chat</h1>
+    <p style="text-align: center;color: white;">Send private message</p>
+
+    <div id="chat-list">
+        {{#each users}}
+        <a href="/private-chat/{{id}}" class="private-chat-avatar" data-privatechatavatarid="{{id}}">
+            <div class="one-follower chat-user">
+                <div class="one-follower-avatar">
+                    <div class="image-cropper-followers">
+                        <img src="{{avatar}}" alt="Avatar" title="{{firstName}} {{lastName}}">
+                    </div>
+                </div>
+                <div>
+                    <span class="indicator offline"></span>
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+
+
+</div>

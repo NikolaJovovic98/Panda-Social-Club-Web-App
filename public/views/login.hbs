@@ -1,0 +1,34 @@
+{{> header}}
+
+{{#if success_messages}}
+<h3 style="color: green;text-align: center;">{{success_messages}}</h3>
+{{/if}}
+
+{{#if error_messages}}
+<h3 style="color: red;text-align: center;">{{error_messages}}</h3>
+{{/if}}
+{{#if error}}
+<h3 style="color: red;text-align: center;">{{error}}</h3>
+{{/if}}
+{{#if success}}
+<h3 style="color: green;text-align: center;">{{success}}</h3>
+{{/if}}
+
+<div id="login-box" >
+  <div class="left">
+    <h1>Login</h1>
+    <form action="/users/login?_csrf={{_csrf}}" method="POST">
+      <input type="text" name="emailLogin" placeholder="E-mail" required />
+      <input type="password" name="passwordLogin" placeholder="Password" required />
+      <input type="submit" name="login" value="Login" />
+      <p style="font-weight: bold;">Dont have an account? <a href="/register">Register</a></p>
+    </form>
+    <a href="/users/forgot-password-email" style="color: white;">Forgot your password?</a>
+    <p>OR</p>
+   <form action="/users/google" method="GET">
+            <button class="social-signin google" type="submit">Log in with Google</button>
+        </form>
+  </div>
+</div>
+
+{{> footer}}

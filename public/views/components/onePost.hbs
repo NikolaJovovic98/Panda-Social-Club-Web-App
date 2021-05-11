@@ -1,0 +1,99 @@
+<div id="one-post-big-div">
+    <div id="one-post-body">
+        <div id="one-post-avatar-info">
+            <div class="image-cropper-one-post">
+                <a href="/users/profile/{{post.user.id}}" title="{{post.user.firstName}} Profile">
+                    <img src="{{post.user.avatar}}" alt="Avatar">
+                </a>
+            </div>
+            <div id="one-post-info">
+                <h3>{{post.user.firstName}} {{post.user.lastName}}</h3>
+            </div>
+
+        </div>
+        <div id="one-post-text">
+            <p>{{post.body}}</p>
+            <hr style="border: 1px solid gainsboro;background-color: gainsboro;">
+            <p>Posted on {{cutDate post.createdAt}}</p>
+            <div id="delete-like-section">
+                {{#isEqual loggedUser.id post.user.id}}
+                <div>
+                    <form action="/posts/delete/{{post.id}}?_csrf={{_csrf}}" method="POST">
+                        <button type="submit" id="delete-post">Delete</button>
+                    </form>
+                </div>
+                {{/isEqual}}
+                <div id="likes-section">
+                    {{#if postLiked}}
+                    <div id="numOfLikes">
+                        <p>{{numOfLikes}}</p>
+                        <div id="whoLiked">
+                            {{#each usersWhoLikedPost}}
+                            <p>{{fullName}}</p>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <form action="/posts/unlike/{{post.id}}?_csrf={{_csrf}}" method="POST">
+                        <button type="submit"><i class="fa fa-thumbs-up" aria-hidden="true"
+                                title="Remove Like"></i></button>
+                    </form>
+                    {{else}}
+                    <div id="numOfLikes">
+                        <p>{{numOfLikes}}</p>
+                        <div id="whoLiked">
+                            {{#each usersWhoLikedPost}}
+                            <p>{{fullName}}</p>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <form action="/posts/like/{{post.id}}?_csrf={{_csrf}}" method="POST" id="like-form">
+                        <button type="submit"><i class="fa fa-thumbs-o-up" aria-hidden="true" title="Like"></i></button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="one-post-comment-form-div">
+        <div class="image-cropper-one-comment-form">
+            <img src="{{loggedUser.avatar}}" alt="Avatar">
+        </div>
+        <div>
+            <form action="/posts/add/comment/{{post.id}}?_csrf={{_csrf}}" method="POST">
+                <input type="text" name="comment" placeholder="Add a comment..." required autocomplete="off">
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="one-post-comments">
+        {{#each comments}}
+        <div id="one-comment">
+            <div id="one-comment-avatar-name">
+                <div>
+                    <div class="image-cropper-one-comment">
+                        <a href="/users/profile/{{user.id}}" title="{{user.firstName}} Profile">
+                            <img src="{{user.avatar}}" alt="Avatar">
+                        </a>
+                    </div>
+                    <div>
+                        <p>{{user.firstName}} {{user.lastName}} | <span
+                                style="font-style: italic;font-weight: 400;">{{cutDate createdAt}}</span></p>
+                    </div>
+                </div>
+                {{#isDoubleEqual ../loggedUser.id user.id ../loggedUser.id ../post.user.id}}
+                <div id="delete-comment">
+                    <form action="/posts/delete/comment/{{id}}?postId={{../post.id}}&_csrf={{../_csrf}}" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+                {{/isDoubleEqual}}
+            </div>
+            <div id="one-comment-text">
+                <p>{{text}}</p>
+            </div>
+        </div>
+        {{/each }}
+    </div>
+</div>

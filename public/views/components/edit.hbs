@@ -1,0 +1,77 @@
+<div class="homepage-sub-div" id="edit-profile-big-div">
+    <h1>Hey {{loggedUser.firstName}}, Edit Your Profile or Change Password</h1>
+    <hr>
+    <div id="forms">
+        <div id="edit-profile-form">
+            <form action="/users/edit-profile?_csrf={{_csrf}}" method="POST" style="margin-bottom: 10px;">
+                <div>
+                    <input type="text" name="firstName" value="{{loggedUser.firstName}}" />
+                    <input type="text" name="lastName" value="{{loggedUser.lastName}}" />
+                    <input type="text" name="location" value="{{loggedUser.location}}" placeholder="Location" />
+                    <input type="text" name="about_me" value="{{loggedUser.about_me}}" placeholder="About me" />
+                </div>
+                <div>
+                    <input type="submit" value="Update Info" />
+                </div>
+            </form>
+            <form action="/users/change-avatar?_csrf={{_csrf}}" method="POST" enctype="multipart/form-data">
+                <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                    <label for="avatar" style="color: white;font-size: 18px">Update Your Avatar </label>
+                    <div class="image-cropper">
+                        <img src="{{loggedUser.avatar}}" alt="Avatar">
+                    </div>
+                    <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg, jpg, jpeg, png"
+                        style="margin: 15px;text-align-last: center;" required>
+                </div>
+                <div>
+                    <input type="submit" value="Change Avatar" />
+                </div>
+            </form>
+        </div>
+        <div id="change-password-profile-form">
+            <form action="/users/change-password?_csrf={{_csrf}}" method="POST">
+                <div>
+                    <input type="password" name="oldPassword" placeholder="Your current password" required>
+                    <input type="password" name="newPassword" placeholder="New password" required>
+                    <input type="password" name="confirmNewPassword" placeholder="Confirm new password" required>
+                </div>
+                <div>
+                    <input type="submit" value="Change Password" style="width: 100%;" />
+                </div>
+            </form>
+        </div>
+        <div id="change-cover-profile">
+            <form action="/users/change-cover?_csrf={{_csrf}}" method="POST" enctype="multipart/form-data">
+                <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                    <label for="avatar" style="color: white;font-size: 18px">Change Cover Photo </label>
+                    <p style="font-style: italic;color: white;">*Cover photo must be landscape</p>
+                    <div class="cover-change">
+                        <img src="{{loggedUser.cover_photo}}" alt="Cover">
+                    </div>
+                    <input type="file" name="cover" style="margin: 15px;text-align-last: center;"
+                        accept="image/png, image/jpeg, image/jpg, jpg, jpeg, png" id="cover-input" required>
+                </div>
+                <div>
+                    <input type="submit" value="Change Cover Photo" id="submit-cover" />
+                </div>
+            </form>
+        </div>
+        {{#isEqual loggedUser.two_factor_auth "0"}}
+        <div id="switch-2fa">
+            <p style="color: red;font-weight: bold;">Two factor authentication is off </p>
+            <form action="/users/enable/2fa?_csrf={{_csrf}}" method="POST">
+                <input type="password" name="password" placeholder="Your password" required />
+                <input type="submit" value="Enable 2FA" />
+            </form>
+        </div>
+        {{else}}
+        <div id="switch-2fa">
+            <p style="color: green;font-weight: bold;">Two factor authentication is on </p>
+            <form action="/users/disable/2fa?_csrf={{_csrf}}" method="POST">
+                <input type="password" name="password" placeholder="Your password" required />
+                <input type="submit" value="Disable 2FA" style="background-color: red;color: white;" />
+            </form>
+        </div>
+        {{/isEqual}}
+    </div>
+</div>

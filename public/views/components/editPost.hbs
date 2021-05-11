@@ -1,0 +1,8 @@
+<h1 style="text-align: center;">Edit Post</h1>
+
+<div id="edit-post-div">
+    <form action="/posts/edit/{{post.id}}?_csrf={{_csrf}}" method="POST" id="edit-post">
+        <textarea name="updateBody" cols="50" rows="4" required>{{post.body}}</textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>

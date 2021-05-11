@@ -1,0 +1,43 @@
+<div style="text-align: center;margin-bottom: 20px;">
+    <h1>Posts you've liked.</h1>
+</div>
+
+<hr>
+
+<div id="one-user-posts" style="margin-top: 20px;">
+
+   <div id="posts-all">
+    {{#each likedPosts}}
+    <div class="one-post">
+        <div class="one-post-avatar">
+            <div class="image-cropper-post">
+                <a href="/users/profile/{{userId}}" title="{{firstName}} Profile">
+                    <img src="{{avatar}}" alt="Avatar">
+                </a>
+            </div>
+        </div>
+        <a href="/posts/show/{{postId}}">
+            <div class="one-post-info">
+                <div class="name-date-post">
+                    <div>
+                        <p>{{firstName}} {{lastName}}</p>
+                        <p>{{cutDate createdAt}}</p>
+                    </div>
+                    {{#isEqual ../loggedUser.id userId}}
+                    <div>
+                        <form action="/posts/delete/{{postId}}?_csrf={{../_csrf}}" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    {{/isEqual}}
+                </div>
+                <p>
+                    {{body}}
+                </p>
+            </div>
+        </a>
+    </div>
+    {{/each}}
+</div>
+
+</div>

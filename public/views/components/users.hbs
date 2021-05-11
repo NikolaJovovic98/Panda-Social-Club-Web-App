@@ -1,0 +1,43 @@
+<div id="big-users-div">
+    <h1>All Users</h1>
+    <div id="all-users">
+
+        {{#each users}}
+        <div class="single-user">
+          <div> 
+            <a href="/users/profile/{{id}}">
+                <div class="single-user-avatar">
+                    <img src="{{avatar}}" alt="Avatar">
+                </div>
+            </a>
+            <div class="single-user-info">
+                <p>{{firstName}} {{lastName}}</p>
+            </div>
+           </div> 
+           <div class="numOfPostsByUser">
+                <p>
+                    Posts: {{numOfPosts}}
+                </p>
+            </div> 
+           {{#isEqual ../loggedUser.role "1"}} 
+            <div style="display: flex;flex-direction: row;margin-right: 10px;">
+               {{#isEqual role "0"}} 
+                <form action="/admin/make-admin/{{id}}?_csrf={{../_csrf}}" method="POST" id="edit-post">
+                    <button type="submit">&plus;Admin</button>
+                </form>
+                {{else}}
+                  <form action="/admin/remove-admin/{{id}}?_csrf={{../_csrf}}" method="POST" id="edit-post">
+                    <button type="submit" style="background-color: orangered;color: white">&minus;Admin</button>
+                </form>
+                {{/isEqual}}
+                <form action="/admin/remove-user/{{id}}?_csrf={{../_csrf}}" method="POST" id="remove-user">
+                    <button type="submit">Remove</button>
+                </form>
+            </div>
+            {{/isEqual}}
+        </div>
+        {{/each}}
+    </div>
+
+
+</div>

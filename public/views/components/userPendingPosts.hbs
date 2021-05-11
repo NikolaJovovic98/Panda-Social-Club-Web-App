@@ -1,0 +1,48 @@
+<div style="text-align: center;margin-bottom: 20px;">
+    <h1>Your Pending Posts</h1>
+    <p>These posts are waiting to be reviewed by our admin team in order to be published. <br>
+        Once your post is approved you will be notified through email and you can see it on <br>
+        your profile or homepage and it will be available to every other user. </p>
+    <p>Before that you can edit or delete your posts but be aware that once <br>
+        your post is approved you will no longer be able to edit it.</p>
+</div>
+
+<hr>
+
+<div id="one-user-posts" style="margin-top: 20px;">
+
+    <div id="posts-all">
+        {{#each posts}}
+        <div class="one-post">
+            <div class="one-post-avatar">
+                <div class="image-cropper-post">
+                    <img src="{{user.avatar}}" alt="Avatar">
+                </div>
+            </div>
+                <div class="one-post-info">
+                    <div class="name-date-post">
+                        <div>
+                            <p>{{user.firstName}} {{user.lastName}}</p>
+                            <p>{{cutDate createdAt}}</p>
+                        </div>
+                        {{#isEqual ../loggedUser.id user.id}}
+                        <div style="display: flex;flex-direction: row;">
+                            <form action="/posts/edit/{{id}}" method="GET" id="edit-post">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="/posts/delete/{{id}}?_csrf={{../_csrf}}" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                        {{/isEqual}}
+                    </div>
+                    <p>
+                        {{body}}
+                    </p>
+                </div>
+            
+        </div>
+        {{/each}}
+    </div>
+
+</div>

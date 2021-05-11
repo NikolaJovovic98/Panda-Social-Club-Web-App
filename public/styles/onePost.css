@@ -1,0 +1,247 @@
+
+
+#one-post-body{
+    padding: 10px;
+    border: 1px solid rgb(167, 162, 162) ;  
+    border-radius: 7px;
+    background-image: linear-gradient(to right bottom, #ecf450, #edea47, #eee03f, #eed737, #eecd30, #efc32a, #f0b925, #f1af21, #f3a21f, #f49421, #f48624, #f37829);
+}
+
+#one-post-avatar-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}   
+
+#delete-post{
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 7px;
+    background-color: rgba(221, 38, 38, 0.863);
+    transition: 0.60s;
+    cursor: pointer;
+}
+
+#delete-post:hover{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+#one-post-comments {
+   margin-top: 20px;
+}
+
+#one-post-comment-form-div{
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-start;
+ align-items: center;
+ padding: 10px;
+ border: 1px solid rgb(167, 162, 162) ;  
+ border-radius: 7px;
+ width: 70%;
+ margin: auto;
+ margin-top: 10px;
+ margin-bottom: 10px;
+}
+
+#one-post-comment-form-div div:nth-child(2)   {
+    width: 80%;
+    padding: 5px;
+}
+
+#one-post-comment-form-div form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#one-post-comment-form-div form input {
+    border: 1px solid rgb(167, 162, 162) ;  
+    width: 100%;
+    height: 50px;
+}
+
+#one-post-comment-form-div form button {
+    border: none;
+    outline: none;
+    background-color: rgba(51, 218, 51, 0.87);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: 0.30s;
+}
+
+#one-post-comment-form-div form button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.image-cropper-one-comment-form {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+
+.image-cropper-one-comment-form img{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.image-cropper-one-post {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+.image-cropper-one-post img{
+    display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+
+#one-comment{
+    border-top:1px solid rgb(167, 162, 162) ;
+    border-left:1px solid rgb(167, 162, 162) ;
+    border-right:1px solid rgb(167, 162, 162) ;
+    width: 75%;
+    margin: auto;
+    padding: 12px;    
+}
+
+@media (max-width: 740px) {
+#one-comment{
+        width: 95%;
+    }
+}
+
+#one-comment:last-child{
+    border-bottom:1px solid rgb(167, 162, 162) ;
+}
+
+#one-comment-avatar-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#one-comment-avatar-name div:first-child{
+    display: flex;
+    flex-direction: row;
+}
+
+#one-comment-avatar-name p {
+    font-weight: bold;
+}
+
+.image-cropper-one-comment {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+
+.image-cropper-one-comment img{
+    display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+#delete-comment {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#delete-comment form button {
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 7px;
+    background-color: rgba(221, 38, 38, 0.863);
+    margin: 10px;
+    transition: 0.60s;
+    cursor: pointer;
+}
+
+#delete-comment form button:hover{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#delete-like-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#likes-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 7%;   
+}
+
+#likes-section button {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    margin-top: 5px;
+}
+
+#likes-section i {
+    font-size: 27px;
+    cursor: pointer;
+    transition: 0.60s;
+}
+
+#likes-section i:hover{
+    color:whitesmoke;
+}
+
+#likes-section p {
+ font-size: 22px;   
+ font-weight: bold;
+}
+
+#numOfLikes {
+    width: 40%;
+    text-align: center;
+    position: relative; 
+}
+
+#whoLiked {
+    background-color: rgba(128, 128, 128, 0.541);
+    position: absolute;
+    width: 7%;
+    width: 100px;
+    border-radius: 0px 15px 15px 15px;
+    top: 80%;
+    left: 30%;
+    transition: 0.60s;
+    display: none;
+    box-shadow: 10px 9px 0px -6px rgba(0,0,0,0.75);
+
+}
+
+#whoLiked p {
+    font-size: 12px !important;
+}

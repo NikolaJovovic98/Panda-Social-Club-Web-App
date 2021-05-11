@@ -1,0 +1,27 @@
+{{> header}}
+
+{{#if success_messages}}
+<h3 style="color: green;text-align: center;">{{success_messages}}</h3>
+{{/if}}
+
+{{#if orange_message}}
+<h3 style="color: rgb(255, 145, 0);text-align: center;">{{orange_message}}</h3>
+{{/if}}
+{{#if error_messages}}
+<h3 style="color: red;text-align: center;">{{error_messages}}</h3>
+{{/if}}
+{{#if error}}
+<h3 style="color: red;text-align: center;">{{error}}</h3>
+{{/if}}
+{{#if success}}
+<h3 style="color: green;text-align: center;">{{success}}</h3>
+{{/if}}
+
+
+<div id="homepage-big-div">
+    <div class="homepage-sub-div">{{> navbar}}</div>
+    <div class="homepage-sub-div">{{> adminReviewPosts}}</div>
+    <div class="homepage-sub-div" id="friends-div">{{> followers}}</div>
+</div>
+
+{{> footer}}

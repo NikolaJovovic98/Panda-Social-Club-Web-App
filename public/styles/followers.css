@@ -1,0 +1,69 @@
+
+
+#test-title{
+text-align: center;
+margin-top: 5px;
+color: whitesmoke;
+}
+
+#followers-list{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#chat-list{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#followers-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.chat-user {
+    border: 1px solid black;
+}
+
+.one-follower{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid gainsboro;
+}
+
+.one-follower .image-cropper-followers {
+    transition: 0.60s;
+}
+
+.one-follower .image-cropper-followers:hover {
+    border-radius: 7%;
+}
+
+.image-cropper-followers{
+    width: 55px;
+    height: 55px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.image-cropper-followers img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}

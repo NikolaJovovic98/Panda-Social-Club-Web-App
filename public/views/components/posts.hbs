@@ -1,0 +1,60 @@
+<div id="posts-big-div" data-page="{{page}}">
+    <div id="posts-big-div">
+        <div id="posts-form">
+            <h1>Hi {{loggedUser.firstName}} Welcome.</h1>
+            <form action="/posts/add?_csrf={{_csrf}}" method="POST">
+                <textarea id="postBody" name="postBody" id="" cols="50" rows="4" placeholder="What's happening?"
+                    required></textarea>
+                <div id="select-post-div">
+                    <button type="submit">Post</button>
+                </div>
+        </div>
+        </form>
+    </div>
+
+    <div id="posts-all">
+        {{#each posts}}
+        <div class="one-post">
+            <div class="one-post-avatar">
+                <div class="image-cropper-post">
+                    <a href="/users/profile/{{userId}}" title="{{firstName}} Profile">
+                        <img src="{{avatar}}" alt="Avatar">
+                    </a>
+                </div>
+            </div>
+            <a href="/posts/show/{{id}}">
+                <div class="one-post-info">
+                    <div class="name-date-post">
+                        <div>
+                            <p>{{firstName}} {{lastName}}</p>
+                            <p>{{cutDate createdAt}}</p>
+                        </div>
+                        {{#isEqual ../loggedUser.id userId}}
+                        <div>
+                            <form action="/posts/delete/{{id}}?_csrf={{../_csrf}}" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                        {{/isEqual}}
+                    </div>
+                    <p>
+                        {{body}}
+                    </p>
+                    <div class="comments-likes">
+                        <p><i class="fa fa-comment" aria-hidden="true" ></i> {{num_of_comments}}</p>
+                        <p><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{num_of_likes}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+
+        <div class="pagination" id="pagination-div" data-numofposts="{{numOfPosts}}">
+            <div id="pages"></div>
+            <div id="arrows">
+                <a id="left-pag">&laquo;</a>
+                <a id="right-pag">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>

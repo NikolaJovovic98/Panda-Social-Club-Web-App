@@ -1,0 +1,12 @@
+.two_fact_auth{
+    height: 300px  !important;
+    margin-top: 200px !important;
+}
+
+#twofa_code {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40%;
+    margin: auto;
+}

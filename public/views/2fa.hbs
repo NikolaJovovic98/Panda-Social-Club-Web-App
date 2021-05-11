@@ -1,0 +1,26 @@
+{{> header}}
+
+{{#if success_messages}}
+<h3 style="color: green;text-align: center;">{{success_messages}}</h3>
+{{/if}}
+{{#if error_messages}}
+<h3 style="color: red;text-align: center;">{{error_messages}}</h3>
+{{/if}}
+{{#if orange_message}}
+<h3 style="color: orange;text-align: center;">{{orange_message}}</h3>
+{{/if}}
+
+
+
+<div id="login-box" class="two_fact_auth" >
+  <div class="left">
+    <h1>Two Factor Authentication</h1>
+    <p>Enter 4 digit code below</p>
+    <form action="/users/login/verify/2fa?_csrf={{_csrf}}" method="POST">
+      <input type="text" name="code" placeholder="Code" required id="twofa_code" autocomplete="off" maxlength="4" />
+      <input type="hidden" value="{{token}}" name="token" readonly  autocomplete="off"/>
+      <input type="submit" name="verify" value="Verify" />
+  </div>
+</div>
+
+{{> footer}}

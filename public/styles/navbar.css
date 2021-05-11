@@ -1,0 +1,100 @@
+#navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(167, 162, 162);
+    background-image: linear-gradient(to right top, #2633f9, #004bfc, #005dfd, #006dfb, #037bf7, #177df4, #237ff2, #2c81ef, #2179ee, #1671ec, #0e68ea, #0c5fe8);
+    border-radius: 7px;
+}
+
+.image-cropper {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 7px;
+  }
+
+#navbar img {
+    display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+#navbar a {
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    margin: 15px;
+    transition: 0.60s;
+}
+  
+#navbar a:hover {
+}
+
+#navbar h3 {
+  color: white;
+}
+
+#logout-button {
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 7px;
+  background-color:rgb(255, 145, 0);
+  transition: 0.60s;
+  cursor: pointer;
+}
+#logout-button:hover{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header-navbar{
+  cursor: pointer;
+}
+
+.box-shadow-menu {
+  position: relative;
+  padding-left: 1.25em;
+}
+.box-shadow-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 2em;
+  height: 0.15em;
+  background: black;
+  box-shadow: 
+    0 0.25em 0 0 black,
+    0 0.5em 0 0 black;
+}
+
+@media (max-width: 740px) {
+   .content{
+     display: none;
+   }
+}
+
+.content-flex {
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+
+.content-hide {
+  display: none;
+}

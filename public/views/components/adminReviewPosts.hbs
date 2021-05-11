@@ -1,0 +1,40 @@
+<div style="text-align: center;margin-bottom: 20px;">
+    <h1>Review Published Posts</h1>
+    <p>Hey admin team, on this page you can remove published posts <br>
+        if you remove post user will be notified through his email address <br>
+     </p>
+</div>
+<hr>
+<div id="posts-all">
+        {{#each posts}}
+        <div class="one-post">
+            <div class="one-post-avatar">
+                <div class="image-cropper-post">
+                    <a href="/users/profile/{{user.id}}" title="{{user.firstName}} Profile">
+                        <img src="{{user.avatar}}" alt="Avatar">
+                    </a>
+                </div>
+            </div>
+           <a href="/posts/show/{{id}}">
+            <div class="one-post-info">
+                <div class="name-date-post">
+                    <div>
+                        <p>{{user.firstName}} {{user.lastName}}</p>
+                        <p>{{cutDate createdAt}}</p>
+                    </div>
+                    {{#isEqual ../loggedUser.role "1"}}
+                    <div>
+                        <form action="/admin/delete-post/{{id}}?_csrf={{../_csrf}}" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    {{/isEqual}}
+                </div>
+                <p>
+                    {{body}}
+                </p>
+            </div>
+            </a> 
+        </div>
+        {{/each}}
+    </div>

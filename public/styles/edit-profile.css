@@ -1,0 +1,101 @@
+#forms{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+}
+
+
+#edit-profile-big-div h1 {
+    text-align: center;
+}
+
+#edit-profile-big-div img {
+    display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+  
+}
+
+#edit-profile-form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #fc943c, #fb882f, #fb7c21, #fa6f13, #f96100);
+    padding: 15px;
+    border-radius: 7px;
+    width: 80%;
+    
+}
+
+#change-password-profile-form  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #fc943c, #fb882f, #fb7c21, #fa6f13, #f96100);
+    border-radius: 7px;
+    width: 30%;
+    text-align: center;
+}
+
+#change-cover-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #fc943c, #fb882f, #fb7c21, #fa6f13, #f96100);
+    border-radius: 7px;
+    padding: 5px;
+    width: 50%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cover-change {
+    width: 300px;
+    height: 150px; 
+}
+
+
+#switch-2fa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #fc943c, #fb882f, #fb7c21, #fa6f13, #f96100);
+    border-radius: 7px;
+    padding: 5px;
+    width: 50%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 740px) {
+    #forms{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #change-password-profile-form{
+        width: 80%;
+        padding: 20px;
+        margin-top: 40px;
+    }
+    #edit-profile-form form{
+        margin: auto;
+    }
+    #change-cover-profile{
+        width: 90%;
+    }
+    #switch-2fa{
+        width: 90%;
+    }
+  }
+

@@ -1,0 +1,45 @@
+<div style="text-align: center;margin-bottom: 20px;">
+    <h1>Users Pending Posts</h1>
+    <p>Hey admin team, on this page you can reject or approve pending posts by users <br>
+        if you approve post it will be published and if you reject it it will be deleted <br>
+        user who wrote post will be notified either way through his email address. </p>
+</div>
+
+<hr>
+
+<div id="one-user-posts" style="margin-top: 20px;">
+
+    <div id="posts-all">
+        {{#each posts}}
+        <div class="one-post">
+            <div class="one-post-avatar">
+                <div class="image-cropper-post">
+                <a href="/users/profile/{{user.id}}" title="{{user.firstName}} Profile">
+                    <img src="{{user.avatar}}" alt="Avatar">
+                 </a>   
+                </div>
+            </div>
+            <div class="one-post-info">
+                <div class="name-date-post">
+                    <div>
+                        <p>{{user.firstName}} {{user.lastName}}</p>
+                        <p>{{cutDate createdAt}}</p>
+                    </div>
+                    <div style="display: flex;flex-direction: row;">
+                        <form action="/admin/approve-post/{{id}}?_csrf={{../_csrf}}" method="POST" id="edit-post">
+                            <button type="submit">Approve</button>
+                        </form>
+                        <form action="/admin/reject-post/{{id}}?_csrf={{../_csrf}}" method="POST">
+                            <button type="submit">Reject</button>
+                        </form>
+                    </div>
+                </div>
+                <p>
+                    {{body}}
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>

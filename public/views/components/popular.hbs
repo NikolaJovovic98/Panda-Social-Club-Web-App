@@ -1,0 +1,39 @@
+<h1 style="text-align: center;">Ranked Popular Posts</h1>
+<p style="text-align: center;">Post is popular if it has more than 2 likes</p>
+
+<div id="posts-all">
+    {{#each popularPosts}}
+    <div class="one-post popular">
+        <div class="one-post-avatar">
+            <div class="image-cropper-post">
+                <a href="/users/profile/{{userId}}" title="{{firstName}} Profile">
+                    <img src="{{avatar}}" alt="Avatar">
+                </a>
+            </div>
+        </div>
+        <a href="/posts/show/{{id}}">
+            <div class="one-post-info">
+                <div class="name-date-post">
+                    <div>
+                        <p>{{firstName}} {{lastName}}</p>
+                        <p>{{cutDate createdAt}}</p>
+                    </div>
+                    {{#isEqual ../loggedUser.id userId}}
+                    <div>
+                        <form action="/posts/delete/{{id}}" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    {{/isEqual}}
+                </div>
+                <p>
+                    {{body}}
+                </p>
+                 <div class="numOfLikes">
+                <p>Likes <span style="font-size: 16px;">{{numOfLikes}}</span></p>
+            </div>
+            </div>
+        </a>
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,23 @@
+<div id="friends-big-div">
+
+  <h1 id="test-title">People You Follow</h1>
+
+  <div id="followers-list">
+    {{#each followers}}
+    <a href="/users/profile/{{id}}">
+    <div class="one-follower">
+      <div class="one-follower-avatar">
+        <div class="image-cropper-followers">
+          <img src="{{avatar}}" alt="Avatar">
+        </div>
+      </div>
+      <div class="one-follower-info">
+        <p>{{firstName}} {{lastName}}</p>
+      </div>
+    </div>
+    </a>
+    {{/each}}
+  </div>
+
+
+</div>

@@ -1,0 +1,69 @@
+
+#big-users-div h1 {
+    text-align: center;
+}
+
+#all-users{
+ padding: 10px;
+}
+
+.single-user{
+  border: 1px solid rgb(167, 162, 162);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.numOfPostsByUser{
+  margin-right: 20px;
+}
+
+.single-user div:first-child{
+  display: flex;
+  flex-direction: row;
+}
+
+.single-user-avatar {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 7px;
+  }
+
+  .single-user-avatar img {
+    display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+.single-user-info {
+    border-left:1px solid rgb(167, 162, 162);
+}
+
+.single-user-info p {
+    margin-left: 10px;
+}
+
+
+#remove-user  button {
+  outline: none;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 7px;
+  background-color: rgba(221, 38, 38, 0.863);
+  transition: 0.60s;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#remove-user  button:hover{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}

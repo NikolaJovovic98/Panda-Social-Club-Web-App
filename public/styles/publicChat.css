@@ -1,0 +1,148 @@
+#public-chat-big-div {
+    background-color: rgba(197, 219, 238, 0.527);
+    border-radius: 7px;
+    width: 100%;
+    margin: auto;
+}
+
+#public-chat-big-div div:nth-child(2) {
+    border-radius: 7px;
+}
+
+#messages-div {
+    overflow: scroll;
+    height: 380px;
+    overflow-x: hidden;
+}
+
+#messages-div-private {
+    overflow: scroll;
+    height: 380px;
+    overflow-x: hidden;
+}
+
+#messages {
+     list-style-type: none; 
+     margin: 0; padding: 0; 
+}
+#messages > li {
+     padding: 0.5rem 1rem; 
+     border-radius: 7px;
+    }
+#messages > li:nth-child(odd) { 
+    background: #97b9ecb7;
+ }
+
+
+
+ #messagesPrivate {
+    list-style-type: none; 
+    margin: 0; padding: 0; 
+}
+#messagesPrivate > li {
+    padding: 0.5rem 1rem; 
+    border-radius: 7px;
+   }
+#messagesPrivate > li:nth-child(odd) { 
+   background: #97b9ecb7;
+}
+
+ 
+#formPublicChat {
+    border-radius: 7px;
+    padding: 2px; 
+    position:relative; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    height:3rem; 
+    box-sizing: border-box; 
+}
+
+#formPublicChat > input {
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+#isTypingMessage {
+    font-style: italic;
+    font-size: 14px;
+    color: rgb(65, 62, 62);
+    text-align: center;
+}
+
+.indicator.online {
+    background: #28B62C;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+
+.indicator.offline {
+    background: #FF4136;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+#private-chat-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#formPublicChat > button {
+     background: rgba(67, 219, 21, 0.89);
+      border: none;
+       padding: 0 1rem;
+        margin: 0.25rem;
+          outline: none; 
+          color: black;
+          border-radius: 7px;
+ cursor: pointer; 
+        }
+
+#privateChatForm{
+    border-radius: 7px;
+    padding: 2px; 
+    position:relative; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    height:3rem; 
+    box-sizing: border-box; 
+}
+
+#privateChatForm > button {
+    background: rgba(67, 219, 21, 0.89);
+     border: none;
+      padding: 0 1rem;
+       margin: 0.25rem;
+         outline: none; 
+         color: black;
+         border-radius: 7px;
+cursor: pointer; 
+       }
+
+#privateChatForm > input {
+        border: none;
+        outline: none;
+        border-radius: 7px;
+        padding: 5px;
+        font-weight: bold;
+    }
+    
+#isTypingMessagePrivate {
+    text-align: center;
+}

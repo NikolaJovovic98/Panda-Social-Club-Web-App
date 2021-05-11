@@ -1,0 +1,49 @@
+<div id="navbar">
+  {{#isEqual loggedUser.role "0"}}
+
+  <a href="/users/profile/{{loggedUser.id}}" data-userid="{{loggedUser.id}}" id="logged-user-data">
+    <div class="image-cropper">
+      <img src="{{loggedUser.avatar}}" alt="Avatar">
+    </div>
+  </a>
+  <h3>{{loggedUser.firstName}} {{loggedUser.lastName}}</h3>
+
+  <div class="header-navbar"><span class="box-shadow-menu"></span></div>
+  <div class="content">
+    <a href="/" class="active" style="border-top: 2px solid black;width: 80%;text-align: center;">Home</a>
+    <a href="/users/profile/{{loggedUser.id}}">My Profile</a>
+    <a href="/users/edit-profile">Edit Profile</a>
+    <a href="/users/all-users">Search Users</a>
+    <a href="/posts/popular-posts">Popular Posts</a>
+    <a href="/posts/liked-posts" >Liked Posts</a>
+    <a href="/public-chat">Public Chat</a>
+
+    <a href="/posts/pending-posts" style="border-bottom: 2px solid black;width: 80%;text-align: center;">My Pending
+      Posts</a>
+  </div>
+  <form action="/users/logout?_csrf={{_csrf}}" method="POST">
+    <input type="submit" value="LOGOUT" style="background-color: orangered;color: white;padding: 10px;">
+  </form>
+
+  {{else}}
+
+  <a href="/users/profile/{{loggedUser.id}}" data-userid="{{loggedUser.id}}" id="logged-user-data">
+    <div class="image-cropper">
+      <img src="{{loggedUser.avatar}}" alt="Avatar">
+    </div>
+  </a>
+  <h3>{{loggedUser.firstName}} {{loggedUser.lastName}} <p style="font-weight: bolder;text-align: center;">admin</p></h3>
+  <a href="/" class="active" style="border-top: 2px solid black;width: 80%;text-align: center;">Home</a>
+  <a href="/users/profile/{{loggedUser.id}}">My Profile</a>
+  <a href="/users/edit-profile">Edit Profile</a>
+  <a href="/admin/pending-posts">Pending Posts</a>
+  <a href="/users/all-users">Edit Users</a>
+  <a href="/admin/review-posts">Review Posts</a>
+  <a href="/posts/popular-posts">Popular Posts</a>
+  <a href="/public-chat">Public Chat</a>
+   <form action="/users/logout?_csrf={{_csrf}}" method="POST">
+    <input type="submit" value="LOGOUT" style="background-color: orangered;color: white;padding: 10px;">
+  </form>
+
+  {{/isEqual}}
+</div>

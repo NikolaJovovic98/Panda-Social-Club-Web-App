@@ -1,0 +1,13 @@
+{{> header}}
+
+{{#if success_messages}}
+<h3 style="color: green;text-align: center;">{{success_messages}}</h3>
+{{/if}}
+
+<div id="homepage-big-div">
+    <div class="homepage-sub-div">{{> navbar}}</div>
+    <div class="homepage-sub-div">{{> posts}}</div>
+    <div class="homepage-sub-div" id="friends-div">{{> followers}}</div>
+</div>
+
+{{> footer}}

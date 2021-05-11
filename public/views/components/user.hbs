@@ -1,0 +1,79 @@
+<div id="one-user-big-div">
+
+    <div id="one-user-info" style="
+                                    background-image: url({{userProfile.cover_photo}});background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    position: relative;">
+        <div>
+            <div class="image-cropper-post-one-user">
+                <img src="{{userProfile.avatar}}" alt="Avatar">
+            </div>
+        </div>
+        <div id="one-user-info-text">
+            <h3>{{userProfile.firstName}} {{userProfile.lastName}}</h3>
+            <p>Joined on <span style="font-style: italic;">{{cutDate userProfile.createdAt}}</span></p>
+            <p><span style="font-style: italic;">{{userProfile.location}}</span></p>
+            <hr style="border: 1px solid wheat;background-color: wheat;width: 80%;margin: auto;border-radius: 7px;">
+            <p><span style="font-style: italic;">{{userProfile.about_me}}</span></p>
+            <div style="display: flex;flex-direction: row;justify-content: space-evenly;align-items: center;">
+                {{#isEqual loggedUser.id userProfile.id}}
+                {{else}}
+                <div>
+                    <p style="font-style: italic;text-align: center;">You have {{mutualFollowers}} mutual followers</p>
+                </div>
+                {{/isEqual}}
+                {{#isEqual following "loggedUserProfile"}}
+                {{else}}
+                {{#if following}}
+                <form action="/users/unfollow/{{userProfile.id}}?_csrf={{_csrf}}" method="POST" id="unfollow-form">
+                    <button type="submit">Unfollow</button>
+                </form>
+                {{else}}
+                <form action="/users/follow/{{userProfile.id}}?_csrf={{_csrf}}" method="POST" id="follow-form">
+                    <button type="submit" id="follow-button">Follow</button>
+                </form>
+                {{/if}}
+                {{/isEqual}}
+            </div>
+        </div>
+    </div>
+    <h3 style="text-align: center;text-decoration: underline;">Posts by {{userProfile.firstName}}</h3>
+
+    <div id="one-user-posts">
+
+        <div id="posts-all">
+            {{#each posts}}
+            <div class="one-post user-profile">
+                <div class="one-post-avatar">
+                    <div class="image-cropper-post">
+                        <img src="{{user.avatar}}" alt="Avatar">
+                    </div>
+                </div>
+                <a href="/posts/show/{{id}}">
+                    <div class="one-post-info">
+                        <div class="name-date-post">
+                            <div>
+                                <p>{{user.firstName}} {{user.lastName}}</p>
+                                <p>{{cutDate createdAt}}</p>
+                            </div>
+                            {{#isEqual ../loggedUser.id user.id}}
+                            <div>
+                                <form action="/posts/delete/{{id}}?_csrf={{../_csrf}}" method="POST">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                            {{/isEqual}}
+                        </div>
+                        <p>
+                            {{body}}
+                        </p>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+
+</div>

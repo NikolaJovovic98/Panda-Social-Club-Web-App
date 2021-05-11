@@ -1,0 +1,21 @@
+.numOfLikes{
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.popular:nth-child(1) {
+    background: linear-gradient(to bottom right, #f2f60e 0%, #de7c0d 100%);
+}
+
+.popular:nth-child(2) {
+    background: linear-gradient(to bottom right, #828282 0%, #dddbd9 100%);
+}
+
+.popular:nth-child(3) {
+    background: linear-gradient(to bottom right, #c86d19 0%, #f6a351 100%);
+}
+
+
+
+

@@ -1,0 +1,31 @@
+<div style="text-align: center;margin-bottom: 20px;">
+    <h1>Private Chat</h1>
+    <p>{{chatWithUser.firstName}} {{chatWithUser.lastName}}</p>
+</div>
+
+<div id="private-chat-user">
+    <div class="image-cropper-one-post">
+        <a href="/users/profile/{{chatWithUser.id}}" title="{{chatWithUser.firstName}} Profile">
+            <img src="{{chatWithUser.avatar}}" alt="Avatar">
+        </a>
+    </div>
+</div>
+
+<div id="public-chat-big-div" style="width: 80%;">
+    <div id="messages-div-private" data-roomid="{{roomId}}">
+        <ul id="messagesPrivate" data-roomid="{{roomId}}">
+        </ul>
+    </div>
+    <div>
+        <p id="isTypingMessagePrivate">Chat</p>
+        <form id="privateChatForm" action="">
+            <input id="inputNamePrivate" autocomplete="off" value="{{loggedUser.firstName}}" type="hidden" readonly />
+            <input id="inputEmailPrivate" autocomplete="off" value="{{loggedUser.email}}" type="hidden" readonly />
+            <input id="chatWithUserEmail" autocomplete="off" value="{{chatWithUser.email}}" type="hidden" readonly />
+            <input id="chatWithUserName" autocomplete="off" value="{{chatWithUser.firstName}}" type="hidden" readonly />
+            <input id="chatWithUserId" autocomplete="off" value="{{chatWithUser.id}}" type="hidden" readonly />
+            <input id="inputMessagePrivate" autocomplete="off" placeholder="Your message" />
+            <button>Send</button>
+        </form>
+    </div>
+</div>

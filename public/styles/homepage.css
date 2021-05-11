@@ -1,0 +1,45 @@
+#homepage-big-div{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 2em;
+    margin: 15px;
+    padding: 10px;   
+}
+
+.homepage-sub-div{
+   height: fit-content;
+}
+
+#friends-div{
+    /* background: linear-gradient(164deg, rgba(193,21,21,0.4) 24%, rgba(182,68,27,0.36) 44%, rgba(255,68,0,0.36) 84%); */
+    border: 1px solid rgb(167, 162, 162);
+    border-radius: 7px;
+    background-image: linear-gradient(to right top, #2634f9e1, #004bfc, #005dfd, #006dfb, #037bf7, #177df4, #237ff2, #2c81ef, #2179ee, #1671ec, #0e68ea, #0c5fe8);
+}
+
+
+@media (max-width: 740px) {
+    #homepage-big-div{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+  #four-o-four-big-div {
+    background-image: linear-gradient(to right top, #fc894c, #fd8141, #fe7935, #fe7029, #ff671b, #fa6114, #f45b0c, #ef5502, #e45203, #d84f04, #cd4b05, #c24806);
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 7px;
+  }
+  
+  #error-status {
+    font-size: 140px;
+  }
