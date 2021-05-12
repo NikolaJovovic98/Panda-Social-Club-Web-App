@@ -8,10 +8,7 @@ module.exports = {
         if (req.isAuthenticated()) {
             return next();
         }
-        // req.flash("error_messages", "Please login to view this resource");
         return res.redirect("/login");
-        // let loginPagePath = path.join(__dirname,"../","public","views","login.hbs");
-        // return res.status(401).sendFile(loginPagePath);
     },
     isAdmin: (req, res, next) => {
         if (req.isAuthenticated() && req.user.role === "1") {
