@@ -325,9 +325,9 @@ router.post("/change-password", isAuth, async (req, res) => {
 router.get("/profile/:userId", isAuth, async (req, res) => {
     const userId = req.params.userId;
     try {
-        const test_user = await Users.testGetUserById(userId);
-        res.json(test_user);
-        // const user = await Users.getUserById(req.params.userId);
+        const user = await Users.getUserById(userId);
+        res.json(user);
+        // 
         // const postsByUser = await Posts.getAllPostsByUser(user.id);
         // let isFollowing = await Users.checkFollowing(req.user.id, parseInt(req.params.userId));
         // const followers = await Followings.getUsersFollowers(req.user.id);
