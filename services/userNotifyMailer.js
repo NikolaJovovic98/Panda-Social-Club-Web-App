@@ -113,7 +113,8 @@ const userTwoFactorCodeNotify = async (userEmail, userName, code) => {
 }
 
 const userResetPasswordNotify = async (userEmail, userName, token) => {
-    const link = `http://localhost:3000/users/reset-password/${token}`
+    // const link = `http://localhost:3000/users/reset-password/${token}`
+    const link = `https://panda-social-club-mne.herokuapp.com/users/reset-password/${token}`;
     try {
         let emailTransporter = await createTransporter();
         await emailTransporter.sendMail({

@@ -3,13 +3,14 @@ const nodemailer = require("nodemailer");
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 module.exports = (sendMailTo, secretCode) => {
-    const link =`http://localhost:3000/users/verify/${secretCode}`
+    // const link =`http://localhost:3000/users/verify/${secretCode}`
+    const link = `https://panda-social-club-mne.herokuapp.com/verify/${secretCode}`;
     return new Promise((resolve, reject) => {
         try {
             const transporter = nodemailer.createTransport({
                 service: "gmail",
                 auth: {
-                    user: process.env.EMAIL_NAME,
+                    user: process.env.EMAIL_NAME ,
                     pass: process.env.EMAIL_PASSWORD
                 }
             });
