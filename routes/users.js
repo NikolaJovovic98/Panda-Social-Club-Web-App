@@ -322,7 +322,7 @@ router.post("/change-password", isAuth, async (req, res) => {
 });
 
 
-router.get("/profile/:userId", isAuth, async (req, res) => {
+router.get("/profile/show/:userId", isAuth, async (req, res) => {
     try {
         const user = await Users.getUserById(req.params.userId);
         const postsByUser = await Posts.getAllPostsByUser(user.id);

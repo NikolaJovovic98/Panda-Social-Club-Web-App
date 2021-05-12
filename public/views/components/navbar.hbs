@@ -1,7 +1,7 @@
 <div id="navbar">
   {{#isEqual loggedUser.role "0"}}
 
-  <a href="/users/profile/{{loggedUser.id}}" data-userid="{{loggedUser.id}}" id="logged-user-data">
+  <a href="/users/show/profile/{{loggedUser.id}}" data-userid="{{loggedUser.id}}" id="logged-user-data">
     <div class="image-cropper">
       <img src="{{loggedUser.avatar}}" alt="Avatar">
     </div>
