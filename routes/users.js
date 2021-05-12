@@ -8,26 +8,13 @@ const Followings = require("../controllers/FollowingsController");
 const generateOTC = require("../services/generateOTP");
 const userMailer = require("../services/userNotifyMailer");
 const rateLimit = require("express-rate-limit");
-const path = require("path");
-const lodash = require("lodash");
-
-
-function getTime(date) {
-    const hours = date.getHours();
-    let minutes = date.getMinutes();
-    if (parseInt(minutes) < 10) {
-        minutes = minutes.replace(/^/, '0');
-    }
-    return (hours + ":" + minutes);
-}
 
 const loginLimiter = rateLimit({
     windowMs: 3 * 60 * 1000, //3 minutes in milliseconds
     max: 3, // max 3 requests
     // message: "Request limit exceeded, try again in 3 minutes",
     handler: (req, res) => {
-        const untill_time = getTime(req.rateLimit.resetTime);
-        req.flash("error_messages", `Request limit exceeded, try again in 3 minutes untill: ${untill_time}`);
+        req.flash("error_messages", `Request limit exceeded, try again in 3 minutes`);
         return res.redirect("/login");
     }
 });
