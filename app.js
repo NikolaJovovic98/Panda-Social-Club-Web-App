@@ -23,6 +23,7 @@ const imageFolder = __dirname + "/public";
 
 module.exports = imageFolder;
 
+app.set('trust proxy', 1);
 app.use(flash());
 app.use(session({
     secret: process.env.EXPRESS_SESSION_SECRET,
