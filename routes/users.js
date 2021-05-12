@@ -326,9 +326,8 @@ router.get("/profile/:userId", isAuth, async (req, res) => {
     const userId = req.params.userId;
     try {
         const user = await Users.getUserById(userId);
-        res.json(user);
-        // 
-        // const postsByUser = await Posts.getAllPostsByUser(user.id);
+        const postsByUser = await Posts.getAllPostsByUser(user.id);
+        res.json(postsByUser);
         // let isFollowing = await Users.checkFollowing(req.user.id, parseInt(req.params.userId));
         // const followers = await Followings.getUsersFollowers(req.user.id);
         // const mutualFollowers = await Users.mutualFollowers(req.user.id, req.params.userId);
