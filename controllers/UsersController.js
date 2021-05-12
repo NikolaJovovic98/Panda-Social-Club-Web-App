@@ -325,6 +325,19 @@ function getUserById(userId) {
     });
 }
 
+function testGetUserById(userId){
+    return new Promise(async(resolve,reject)=>{
+        try {
+            const user = await db.query(`SELECT * FROM users WHERE users.id = ${userId}`);
+            const raw_user = user[0];
+            resolve(raw_user);
+        } catch (error) {
+            console.log(error);
+            reject(false);
+        }
+    });
+}
+
 function checkFollowing(loggedUserId, profileUserId) {
     return new Promise(async (resolve, reject) => {
         try {
@@ -486,5 +499,6 @@ module.exports = {
     clearOTC,
     updateOTC,
     getUserByEmail,
-    resetPassword
+    resetPassword,
+    testGetUserById
 }
