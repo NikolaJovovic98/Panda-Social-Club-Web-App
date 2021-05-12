@@ -332,14 +332,15 @@ router.get("/profile/:userId", isAuth, async (req, res) => {
         if (req.user.id === parseInt(req.params.userId)) {
             isFollowing = "loggedUserProfile";
         }
-        res.render("user-profile.hbs", {
-            loggedUser: req.user,
-            userProfile: user,
-            posts: postsByUser,
-            following: isFollowing,
-            followers,
-            mutualFollowers
-        });
+        res.json(user);
+        // res.render("user-profile.hbs", {
+        //     loggedUser: req.user,
+        //     userProfile: user,
+        //     posts: postsByUser,
+        //     following: isFollowing,
+        //     followers,
+        //     mutualFollowers
+        // });
     } catch (error) {
         res.status(403).json(error);
     }

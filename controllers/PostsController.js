@@ -240,6 +240,7 @@ function getHomePagePosts(loggedUserId){
             FROM users
             WHERE users.id IN 
             ( SELECT followerId from followings where userId = ${loggedUserId})OR users.id = ${loggedUserId})
+            AND posts.is_approved = 1
             ORDER BY createdAt DESC`);
             resolve(query);
         } catch (error) {
