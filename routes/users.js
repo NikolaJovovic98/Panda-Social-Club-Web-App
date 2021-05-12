@@ -332,9 +332,9 @@ router.get("/profile/:userId", isAuth, async (req, res) => {
         if (loggedUser === parseInt(userId)) {
             isFollowing = "loggedUserProfile";
         }
-        const followers = await Followings.getUsersFollowers(loggedUser);
-        res.json(followers);
-        // const mutualFollowers = await Users.mutualFollowers(req.user.id, req.params.userId);
+        const followers = await Followings.getUsersFollowers(loggedUser); // radi
+        const mutualFollowers = await Users.mutualFollowers(req.user.id, req.params.userId);
+        res.json(mutualFollowers);
         // res.json(user);
         // res.render("user-profile.hbs", {
         //     loggedUser: req.user,

@@ -19,9 +19,9 @@
             <div style="display: flex;flex-direction: row;justify-content: space-evenly;align-items: center;">
                 {{#isEqual loggedUser.id userProfile.id}}
                 {{else}}
-                <div>
+                {{!-- <div>
                     <p style="font-style: italic;text-align: center;">You have {{mutualFollowers}} mutual followers</p>
-                </div>
+                </div> --}}
                 {{/isEqual}}
                 {{#isEqual following "loggedUserProfile"}}
                 {{else}}
