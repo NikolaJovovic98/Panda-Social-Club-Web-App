@@ -98,21 +98,16 @@ app.use((req,res)=>{
     res.render("404.hbs");
 });
 
-// db.authenticate()
-//     .then(() => {
-//         console.log("Connected do database. ");
-//         server.listen(PORT, (err) => {
-//             if (err) { console.log(err); }
-//             console.log("Server is running on port:" + PORT);
-//         });
-//     }).catch((err) => {
-//         console.log("There was an error in connecting do database-> " + err);
-//     });
-
-server.listen(PORT, (err) => {
-                if (err) { console.log(err); }
-                console.log("Server is running on port:" + PORT);
-            });
+db.authenticate()
+    .then(() => {
+        console.log("Connected do database. ");
+        server.listen(PORT, (err) => {
+            if (err) { console.log(err); }
+            console.log("Server is running on port:" + PORT);
+        });
+    }).catch((err) => {
+        console.log("There was an error in connecting do database-> " + err);
+    });
 
 const io = socket(server);
 
