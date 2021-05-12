@@ -30,7 +30,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,  // ako je true ne moze da se pristupi connect.sid tj cookie sa js ako je false moze da se pristupi
-        secure:true //only available in HTTPS protocol
+        //secure:true //only available in HTTPS protocol
     }
 }));
 app.use(passport.initialize());
