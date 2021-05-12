@@ -322,25 +322,26 @@ router.post("/change-password", isAuth, async (req, res) => {
 });
 
 
-router.get("/profile/show/:userId", isAuth, async (req, res) => {
+router.get("/profile/:userId", isAuth, async (req, res) => {
     try {
-        const user = await Users.getUserById(req.params.userId);
-        const postsByUser = await Posts.getAllPostsByUser(user.id);
-        let isFollowing = await Users.checkFollowing(req.user.id, parseInt(req.params.userId));
-        const followers = await Followings.getUsersFollowers(req.user.id);
-        const mutualFollowers = await Users.mutualFollowers(req.user.id, req.params.userId);
-        if (req.user.id === parseInt(req.params.userId)) {
-            isFollowing = "loggedUserProfile";
-        }
-        res.json(user);
-        res.render("user-profile.hbs", {
-            loggedUser: req.user,
-            userProfile: user,
-            posts: postsByUser,
-            following: isFollowing,
-            followers,
-            mutualFollowers
-        });
+        res.json(req.params.userId);
+        // const user = await Users.getUserById(req.params.userId);
+        // const postsByUser = await Posts.getAllPostsByUser(user.id);
+        // let isFollowing = await Users.checkFollowing(req.user.id, parseInt(req.params.userId));
+        // const followers = await Followings.getUsersFollowers(req.user.id);
+        // const mutualFollowers = await Users.mutualFollowers(req.user.id, req.params.userId);
+        // if (req.user.id === parseInt(req.params.userId)) {
+        //     isFollowing = "loggedUserProfile";
+        // }
+        // res.json(user);
+        // res.render("user-profile.hbs", {
+        //     loggedUser: req.user,
+        //     userProfile: user,
+        //     posts: postsByUser,
+        //     following: isFollowing,
+        //     followers,
+        //     mutualFollowers
+        // });
     } catch (error) {
         res.status(403).json(error);
     }
