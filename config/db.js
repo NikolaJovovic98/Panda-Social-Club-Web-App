@@ -1,5 +1,4 @@
 // var sequelize = new Sequelize('mysql://root:ducsnj18977@localhost:3306/panda_db');
-const Op = Sequelize.Op
 const { Sequelize } = require("sequelize");
 const db = new Sequelize(process.env.CLEARDB_DATABASE_URL, {
   // host: process.env.DB_HOST,
@@ -10,7 +9,6 @@ const db = new Sequelize(process.env.CLEARDB_DATABASE_URL, {
     idle: 10000
   },
   logging: false, // prikazivanje querija u terminal da/ne
-  operatorsAliases: Op
 });
 
 
