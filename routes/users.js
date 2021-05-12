@@ -324,16 +324,17 @@ router.post("/change-password", isAuth, async (req, res) => {
 
 router.get("/profile/:userId", isAuth, async (req, res) => {
     const userId = req.params.userId;
+    const loggedUser = req.user.id;
     try {
         const user = await Users.getUserById(userId);
         const postsByUser = await Posts.getAllPostsByUser(user.id);
-        res.json(postsByUser);
-        // let isFollowing = await Users.checkFollowing(req.user.id, parseInt(req.params.userId));
+        let isFollowing = await Users.checkFollowing(loggedUser, parseInt(userId));
+        if (loggedUser === parseInt(userId)) {
+            isFollowing = "loggedUserProfile";
+        }
+        res.json(isFollowing);
         // const followers = await Followings.getUsersFollowers(req.user.id);
         // const mutualFollowers = await Users.mutualFollowers(req.user.id, req.params.userId);
-        // if (req.user.id === parseInt(req.params.userId)) {
-        //     isFollowing = "loggedUserProfile";
-        // }
         // res.json(user);
         // res.render("user-profile.hbs", {
         //     loggedUser: req.user,

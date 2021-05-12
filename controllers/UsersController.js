@@ -499,6 +499,5 @@ module.exports = {
     clearOTC,
     updateOTC,
     getUserByEmail,
-    resetPassword,
-    testGetUserById
+    resetPassword
 }
