@@ -4,7 +4,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 module.exports = (sendMailTo, secretCode) => {
     // const link =`http://localhost:3000/users/verify/${secretCode}`
-    const link = `https://panda-social-club-mne.herokuapp.com/verify/${secretCode}`;
+    const link = `https://panda-social-club-mne.herokuapp.com/users/verify/${secretCode}`;
     return new Promise((resolve, reject) => {
         try {
             const transporter = nodemailer.createTransport({
