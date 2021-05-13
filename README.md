@@ -25,10 +25,12 @@ REST API web application made with NodeJs as back-end and Handlebars templating 
 
 ## Web Security
 *There are basic measures of security applied to the application*.
+- 2FA ( Two Factor Authentication )
 - Brute force attack prevention
-- CSRF prevention
-- XSS prevention
+- CSRF ( Cross Site Request Forgery ) prevention
+- XSS ( Cross Site Scripting ) prevention
 - SQL injection prevention
+- Encrypted user passwords
 
 ## Link 
 *https://panda-social-club-mne.herokuapp.com*
