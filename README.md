@@ -23,8 +23,8 @@ REST API web application made with NodeJs as back-end and Handlebars templating 
 - Set or unset a basic user to be an admin
 - Be notified by email when the user publishes a new post
 
-There are measures of security applied to the application.
 ## Web Security
+*There are basic measures of security applied to the application*.
 - Brute force attack prevention
 - CSRF prevention
 - XSS prevention
