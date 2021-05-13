@@ -1,5 +1,14 @@
 # Panda Social Club Web Application
-REST API web application made with NodeJs as back-end and Handlebars templating engine as front-end alongside with MySql database. Application has user authentication and authorization which includes registration, email verification, login, or user can login immediately with google account. There is also the role management of two layers, basic user and administrator. 
+REST API web application made with Node.js as back-end and Handlebars templating engine as front-end alongside with MySql database. Application has user authentication and authorization which includes registration, email verification, login, or user can login immediately with google account. There is also the role management of two layers, basic user and administrator.
+
+## Technologies Used
+- Node.js
+- Express.js
+- Handlebars
+- MySql 
+- Passport
+- OAuth2
+
 ## Basic User Can: 
 - Publish posts that need to be reviewed and approved by the admin in order to be published publicly.
 - Change his profile photo, cover photo, password, information( first name, last name, location, about me)
