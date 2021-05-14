@@ -41,5 +41,7 @@ REST API web application made with Node.js as back-end and Handlebars templating
 - SQL injection prevention
 - Encrypted user passwords
 
+## Installation And Prerequisites
+
 ## Link 
 *https://panda-social-club-mne.herokuapp.com*
